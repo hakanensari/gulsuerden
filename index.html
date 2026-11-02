@@ -1,36 +1,412 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Hey look, it's Gülsu" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gülsu Erden</title>
-    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@latest/new.min.css"
-    />
+    <meta name="description" content="Gülsu Erden. Distinctive asset. Reasons to believe on LinkedIn.">
+    <link rel="canonical" href="https://gulsuerden.com/">
+    <meta name="theme-color" content="#1d111c">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://gulsuerden.com/">
+    <meta property="og:title" content="Gülsu Erden">
+    <meta property="og:description" content="Distinctive asset. Reasons to believe on LinkedIn.">
+    <meta property="og:image" content="https://gulsuerden.com/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Gülsu Erden, set large under a band of tiny glowing hexagons">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" href="fonts/bodoni-moda-italic-800.woff2" as="font" type="font/woff2" crossorigin>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gülsu Erden",
+        "alternateName": "Gulsu Erden",
+        "url": "https://gulsuerden.com/",
+        "sameAs": ["https://www.linkedin.com/in/gulsuerden/"],
+        "jobTitle": "Global Brand Building Leader, Philips Avent",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Philips",
+          "url": "https://www.philips.com/"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Boğaziçi University",
+          "url": "https://bogazici.edu.tr/"
+        },
+        "homeLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Amsterdam",
+            "addressCountry": "NL"
+          }
+        }
+      }
+    </script>
+    <style>
+      @font-face {
+        font-family: "Bodoni Moda";
+        src: url("fonts/bodoni-moda-italic-800.woff2") format("woff2");
+        font-style: italic;
+        font-weight: 800;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Bodoni Moda";
+        src: url("fonts/bodoni-moda-400.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Hanken Grotesk";
+        src: url("fonts/hanken-grotesk-400.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+      /* Night colours by default; the script below moves them with the time of day */
+      :root {
+        --ground: #1d111c;
+        --ink: #f3e7df;
+        --accent: #ff6b7f;
+        --muted: rgba(243, 231, 223, 0.78);
+        --underline: #c9a45c;
+        color-scheme: dark;
+        background: var(--ground);
+        color: var(--ink);
+      }
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        font-family: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      #strip {
+        display: block;
+        flex: none;
+        width: 100%;
+        height: 24px;
+      }
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px clamp(20px, 5vw, 64px) clamp(28px, 4.5vw, 52px);
+      }
+      h1 {
+        margin: auto 0 0;
+        font-family: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif;
+        font-weight: 400;
+        /* Fits short, wide windows as well as narrow ones */
+        font-size: clamp(80px, min(23vw, 36svh), 300px);
+        line-height: 0.82;
+        letter-spacing: -0.025em;
+      }
+      h1 span {
+        display: block;
+      }
+      .first {
+        font-style: italic;
+        font-weight: 800;
+        color: var(--accent);
+      }
+      .last {
+        padding-left: 0.9em;
+      }
+      sup {
+        position: relative;
+        top: 1.25em;
+        margin-left: 0.3em;
+        vertical-align: top;
+        font: 400 0.107em "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: 0;
+        color: var(--ink);
+      }
+      .note {
+        margin: 0;
+        font-size: 16px;
+        letter-spacing: 0.01em;
+        color: var(--muted);
+      }
+      a {
+        /* Inline so it can wrap on a phone; the padding still widens the tap target */
+        padding: 12px 0;
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-color: var(--underline);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 5px;
+      }
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
+      a:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 4px;
+      }
+    </style>
+    <script>
+      /* The colours follow the light of the visitor's day. Keyframes are OKLCH, blended
+         in OKLab. Dark and light swap in one step at 06:00 and 20:15, so no minute shows
+         a muddy midtone. Add ?hour=13 to the address to pin an hour. */
+      (function () {
+        var SKY = [
+          [0, [0.19, 0.03, 335]],
+          [5.5, [0.22, 0.045, 315]],
+          [5.99, [0.26, 0.05, 330]],
+          [6, [0.8, 0.05, 10]],
+          [6.75, [0.87, 0.05, 15]],
+          [8, [0.95, 0.03, 75]],
+          [13, [0.985, 0.01, 85]],
+          [18, [0.94, 0.05, 75]],
+          [19.5, [0.82, 0.08, 35]],
+          [20.24, [0.76, 0.08, 28]],
+          [20.25, [0.32, 0.06, 320]],
+          [22, [0.21, 0.035, 330]],
+          [24, [0.19, 0.03, 335]]
+        ];
+
+        function lch2lab(c) {
+          var h = c[2] * Math.PI / 180;
+          return [c[0], c[1] * Math.cos(h), c[1] * Math.sin(h)];
+        }
+
+        function lab2hex(c) {
+          var l = Math.pow(c[0] + 0.3963377774 * c[1] + 0.2158037573 * c[2], 3);
+          var m = Math.pow(c[0] - 0.1055613458 * c[1] - 0.0638541728 * c[2], 3);
+          var s = Math.pow(c[0] - 0.0894841775 * c[1] - 1.291485548 * c[2], 3);
+          return "#" + [
+            4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+            -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+            -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s
+          ].map(function (x) {
+            var v = x <= 0.0031308 ? 12.92 * x : 1.055 * Math.pow(x, 1 / 2.4) - 0.055;
+            return Math.round(Math.min(1, Math.max(0, v)) * 255).toString(16).padStart(2, "0");
+          }).join("");
+        }
+
+        function hex2lab(hex) {
+          var n = parseInt(hex.slice(1), 16);
+          var c = [n >> 16, (n >> 8) & 255, n & 255].map(function (v) {
+            v /= 255;
+            return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+          });
+          var l = Math.cbrt(0.4122214708 * c[0] + 0.5363325363 * c[1] + 0.0514459929 * c[2]);
+          var m = Math.cbrt(0.2119034982 * c[0] + 0.6806995451 * c[1] + 0.1073969566 * c[2]);
+          var s = Math.cbrt(0.0883024619 * c[0] + 0.2817188376 * c[1] + 0.6299787005 * c[2]);
+          return [
+            0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s,
+            1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s,
+            0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s
+          ];
+        }
+
+        function mix(a, b, t) {
+          return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+        }
+
+        /* Eight colours, evenly spaced along a path through the given stops */
+        function ramp(colors) {
+          var stops = colors.map(hex2lab);
+          var out = [];
+          for (var k = 0; k < 8; k++) {
+            var p = (k + 1) / 8 * (stops.length - 1);
+            var j = Math.min(stops.length - 2, Math.floor(p));
+            out.push(lab2hex(mix(stops[j], stops[j + 1], p - j)));
+          }
+          return out;
+        }
+
+        /* In the small hours the strip smoulders: in from 22:00, full from midnight to 04:30, out by 06:00 */
+        function embers(h) {
+          if (h >= 22) return (h - 22) / 2;
+          if (h < 4.5) return 1;
+          if (h < 5.99) return 1 - (h - 4.5) / 1.49;
+          return 0;
+        }
+
+        function theme(hour) {
+          var h = ((hour % 24) + 24) % 24;
+          var i = 1;
+          while (SKY[i][0] < h) i++;
+          var a = SKY[i - 1];
+          var b = SKY[i];
+          var g = mix(lch2lab(a[1]), lch2lab(b[1]), (h - a[0]) / (b[0] - a[0]));
+          var dark = g[0] < 0.6;
+          var ground = lab2hex(g);
+          var ink = dark ? "#f3e7df" : "#2a1730";
+          var accent = dark ? "#ff6b7f" : "#a81f3a";
+          var strip = ramp(dark
+            ? [ground, "#8f2f52", accent, "#f68f5c", "#f4b52e", ink]
+            : [ground, "#f4b52e", "#f68f5c", accent, "#5e2445", ink]);
+          var e = embers(h);
+          if (dark && e > 0) {
+            var low = ramp([ground, "#5e2445", "#8f2f52", accent, "#f68f5c"]);
+            strip = strip.map(function (c, k) {
+              return lab2hex(mix(hex2lab(c), hex2lab(low[k]), e));
+            });
+          }
+          var n = parseInt(ink.slice(1), 16);
+          return {
+            dark: dark,
+            ground: ground,
+            ink: ink,
+            accent: accent,
+            muted: "rgba(" + (n >> 16) + ", " + ((n >> 8) & 255) + ", " + (n & 255) + ", 0.78)",
+            underline: dark ? "#c9a45c" : "#8a6418",
+            strip: strip
+          };
+        }
+
+        function hour() {
+          var pinned = parseFloat(new URLSearchParams(location.search).get("hour"));
+          if (!isNaN(pinned)) return pinned;
+          var d = new Date();
+          return d.getHours() + d.getMinutes() / 60;
+        }
+
+        function apply() {
+          var t = theme(hour());
+          var root = document.documentElement;
+          ["ground", "ink", "accent", "muted", "underline"].forEach(function (key) {
+            root.style.setProperty("--" + key, t[key]);
+          });
+          root.style.colorScheme = t.dark ? "dark" : "light";
+          document.querySelector('meta[name="theme-color"]').content = t.ground;
+          window.stripColours = t.strip;
+          window.dispatchEvent(new Event("daylight"));
+        }
+
+        apply();
+        setInterval(apply, 60000);
+      })();
+    </script>
   </head>
   <body>
-    <img src="gulsu.png" alt="Gülsu" style="margin-top: 2em; width: 120px" />
-    <p>Hi, I'm <i>Gülsu Erden</i>.</p>
-    <p>I am a consumer- and planet-centric marketing leader.</p>
-    <p>
-      I currently work at
-      <a href="https://www.philips.nl/c-m-mo/philips-avent-and-your-baby"
-        >Philips Avent</a
-      >.
-    </p>
-    <p>Find me</p>
-    <ul>
-      <li>
-        <a href="http://linkedin.com/in/gulsuerden"
-          >linkedin.com/in/gulsuerden</a
-        >
-      </li>
-      <li>
-        <a href="mailto:gulsuerden@gmail.com">gulsuerden@gmail.com</a>
-      </li>
-    </ul>
+    <canvas id="strip" aria-hidden="true"></canvas>
+    <main>
+      <h1>
+        <span class="first">Gülsu<sup aria-hidden="true">1</sup></span>
+        <span class="last">Erden</span>
+      </h1>
+      <p class="note">1. Distinctive asset. <a href="https://www.linkedin.com/in/gulsuerden/">Reasons to believe on LinkedIn</a></p>
+    </main>
+    <script>
+      /* A hexbin halftone after d3's "hexbin (area)" example: hexagons 2px across their
+         corners, each sized by a density field of soft blobs drifting along the strip.
+         Colour follows density, from the ground up to the hottest colour of the hour. */
+      (function () {
+        var canvas = document.getElementById("strip");
+        var ctx = canvas.getContext("2d");
+        var still = window.matchMedia("(prefers-reduced-motion: reduce)");
+        var R = 2;
+        var DX = Math.sqrt(3) * R;
+        var DY = 1.5 * R;
+        /* Just under touching, so dense patches stay a halftone instead of filling in */
+        var MAX = R * 0.92;
+        var UX = [];
+        var UY = [];
+        for (var k = 0; k < 6; k++) {
+          UX.push(Math.sin(k * Math.PI / 3));
+          UY.push(-Math.cos(k * Math.PI / 3));
+        }
+
+        /* Seeded, so the field looks the same on every visit */
+        var seed = 7;
+        function rnd() {
+          seed = (seed * 16807) % 2147483647;
+          return (seed - 1) / 2147483646;
+        }
+        var blobs = [];
+        for (var b = 0; b < 9; b++) {
+          blobs.push({
+            px: rnd() * 6.283, py: rnd() * 6.283,
+            sx: 0.08 + rnd() * 0.22, sy: 0.3 + rnd() * 0.6,
+            rx: 0.04 + rnd() * 0.09, ry: 0.35 + rnd() * 0.5,
+            amp: 0.55 + rnd() * 0.5
+          });
+        }
+
+        function draw(t) {
+          var colours = window.stripColours;
+          var w = canvas.clientWidth;
+          var h = canvas.clientHeight;
+          if (!colours || !w || !h) return;
+          var dpr = Math.min(window.devicePixelRatio || 1, 2);
+          var W = Math.round(w * dpr);
+          var H = Math.round(h * dpr);
+          if (canvas.width !== W || canvas.height !== H) {
+            canvas.width = W;
+            canvas.height = H;
+          }
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          ctx.clearRect(0, 0, w, h);
+          var field = blobs.map(function (o) {
+            return {
+              x: w * (0.5 + 0.62 * Math.sin(o.px + t * o.sx)),
+              y: h * (0.5 + 0.45 * Math.sin(o.py + t * o.sy)),
+              ix: 1 / (2 * Math.pow(o.rx * w, 2)),
+              iy: 1 / (2 * Math.pow(o.ry * h, 2)),
+              amp: o.amp
+            };
+          });
+          var paths = colours.map(function () { return new Path2D(); });
+          for (var j = 0, y = 0; y <= h + R; j++, y += DY) {
+            for (var x = j & 1 ? DX / 2 : 0; x <= w + DX; x += DX) {
+              var total = 0;
+              for (var q = 0; q < field.length; q++) {
+                var f = field[q];
+                var ex = x - f.x;
+                var ey = y - f.y;
+                total += f.amp * Math.exp(-(ex * ex * f.ix + ey * ey * f.iy));
+              }
+              total += 0.06 * (1 + Math.sin(x * 0.045 + t * 1.7) * Math.sin(y * 0.33 - t * 1.1));
+              /* Soft ceiling: overlapping blobs approach full density without flattening into a block */
+              total = 1 - Math.exp(-1.3 * total);
+              var size = MAX * Math.sqrt(total);
+              if (size < 0.4) continue;
+              var p = paths[Math.min(colours.length - 1, Math.floor(total * colours.length))];
+              p.moveTo(x + UX[0] * size, y + UY[0] * size);
+              for (var c = 1; c < 6; c++) p.lineTo(x + UX[c] * size, y + UY[c] * size);
+              p.closePath();
+            }
+          }
+          for (var i = 0; i < colours.length; i++) {
+            ctx.fillStyle = colours[i];
+            ctx.fill(paths[i]);
+          }
+        }
+
+        var start = performance.now();
+        var frame = 0;
+        var raf = 0;
+        function loop(now) {
+          /* Every other frame is plenty for a slow drift */
+          if (frame++ % 2 === 0) draw((now - start) / 1000);
+          raf = requestAnimationFrame(loop);
+        }
+        function run() {
+          cancelAnimationFrame(raf);
+          if (still.matches) draw(12);
+          else raf = requestAnimationFrame(loop);
+        }
+        function redraw() {
+          if (still.matches) draw(12);
+        }
+        still.addEventListener("change", run);
+        window.addEventListener("resize", redraw);
+        window.addEventListener("daylight", redraw);
+        run();
+      })();
+    </script>
   </body>
 </html>
