@@ -1052,10 +1052,7 @@
           var sh = a.hh + b.hh;
           var ox = sw - Math.abs(dx);
           var oy = sh - Math.abs(dy);
-          if (ox <= EPS || oy <= EPS) {
-            if (b.out === a) b.out = null;
-            return;
-          }
+          if (ox <= EPS || oy <= EPS) return;
           if (a.out || (b.out && b.out !== a)) return;
           if (b.out && nudge(b, b.ax, b.dir * Math.min(most, b.ax ? sh - b.dir * dy : sw - b.dir * dx))) return;
           b.out = null;
@@ -1130,6 +1127,12 @@
               b.vx *= COAST / v;
               b.vy *= COAST / v;
             }
+          });
+          /* A block on its way across another is done once clear of it, and gives
+             up if the other is picked up or is no longer the one on top */
+          blocks.forEach(function (b) {
+            var a = b.out;
+            if (a && (a.held || a.out || a.z < b.z || Math.abs(a.x - b.x) > a.hw + b.hw - EPS || Math.abs(a.y - b.y) > a.hh + b.hh - EPS)) b.out = null;
           });
           blocks.forEach(function (a, i) {
             blocks.slice(i + 1).forEach(function (b) {
