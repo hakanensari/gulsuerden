@@ -16,7 +16,7 @@
     <meta property="og:image" content="https://gulsuerden.com/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="A wall of words on cream, each in its own typeface, the key words heavy in ochre, crimson, blue and pink and the small words light: Gülsu Erden is currently the global brand building leader at Philips Avent.">
+    <meta property="og:image:alt" content="A wall of words on cream, each in its own typeface, the key words heavy in blue, ochre, pink and crimson and the small words light: Gülsu Erden is currently the global brand building leader at Philips Avent.">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="fonts/dm-serif-display-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/anybody-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -414,18 +414,18 @@
          word readable, is set. */
       (function () {
         var TREES = [
-          ["c", 0, ["r", 1, 2], ["r", ["c", ["r", 3, 4, 5], 6, ["r", 7, 8]], "9v"], ["r", 10, 11]],
-          ["c", ["r", 0, 1], ["r", 2, ["c", 3, 4, 5], 6], ["r", "7v", 8, 9, ["c", 10, 11]]],
-          ["c", 0, 1, ["r", ["c", ["r", 2, 3], 4, 5, 6], "7v"], 8, ["r", 9, ["c", 10, 11]]],
-          ["c", ["r", 0, 1], ["r", ["c", ["r", 2, 3], 4], 5], ["r", 6, 7], ["r", 8, 9, ["c", 10, 11]]],
-          ["c", ["r", 0, 1], ["r", 2, 3], ["r", ["c", 4, 5], 6, 7], ["r", 8, ["c", 9, 10], 11]],
-          ["c", 0, 1, ["r", 2, 3], ["r", ["c", 4, 5], 6], ["r", 7, 8], ["r", 9, ["c", 10, 11]]],
-          ["c", ["r", 0, 1], ["r", 2, ["c", 3, 4, 5], 6, "7v"], ["r", 8, "9v", ["c", 10, 11]]],
-          ["c", ["r", 0, 1, ["c", 2, 3]], ["r", 4, "5v", 6], ["r", 7, 8, ["c", 9, 10], 11]],
-          ["c", 0, 1, ["r", 2, 3, 4, 5], ["r", 6, "7v"], ["r", 8, 9], ["r", 10, 11]],
-          ["c", 0, ["r", 1, 2], 3, ["r", ["c", 4, 5], 6], ["r", "7v", 8], ["r", ["c", 9, 10], 11]],
-          ["c", ["r", 0, 1], ["r", 2, 3], ["r", ["c", 4, 5], 6], ["r", 7, ["c", 8, ["r", 9, 10, 11]]]],
-          ["c", 0, 1, ["r", 2, ["c", 3, 4, 5]], ["r", 6, "7v"], ["r", 8, 9], ["r", 10, 11]]
+          ["c", ["r", ["c", 0, 1, ["r", 2, 3, 4], ["r", 5, 6]], "7v"], ["r", 8, 9, 10, 11]],
+          ["c", 0, 1, ["r", 2, 3, 4, 5], 6, 7, 8, ["r", 9, 10, 11]],
+          ["c", ["r", 0, 1], ["r", ["c", ["r", 2, 3, 4, 5], 6], 7], ["r", 8, 9, 10, 11]],
+          ["c", 0, 1, ["r", 2, 3, 4, 5], ["r", 6, "7v"], 8, ["r", 9, 10, 11]],
+          ["c", ["r", ["c", 0, 1, ["r", 2, 3, 4, 5], 6], "7v"], ["r", 8, 9, 10, 11]],
+          ["c", ["r", 0, ["c", 1, ["r", 2, 3, 4, 5]]], ["r", ["c", 6, 7], 8], ["r", 9, 10, 11]],
+          ["c", ["r", 0, 1], ["r", "2v", 3, ["c", 4, 5]], ["r", 6, 7, 8, "9v"], ["r", 10, 11]],
+          ["c", ["r", 0, 1], ["r", ["c", ["r", 2, 3], 4, 5], 6, 7], ["r", 8, "9v", 10, 11]],
+          ["c", 0, 1, ["r", 2, 3, 4], 5, 6, ["r", 7, 8, "9v"], ["r", 10, 11]],
+          ["c", 0, ["r", 1, ["c", ["r", 2, 3, 4], 5, 6]], ["r", 7, 8], ["r", 9, 10, 11]],
+          ["c", 0, 1, ["r", 2, 3, 4, 5], 6, ["r", 7, 8, "9v"], ["r", 10, 11]],
+          ["c", ["r", ["c", 0, 1, ["r", 2, 3, 4, 5, 6]], "7v"], ["r", 8, 9, 10, 11]]
         ];
         var main = document.querySelector("main");
         var words = [].slice.call(document.querySelectorAll(".w"));
@@ -675,6 +675,13 @@
             : Math.min(tile.w / node.iw, tile.h / m.h);
         }
 
+        /* Whether Philips and Avent are set next to each other in one row or column */
+        function paired(node) {
+          return !!node.c && node.c.some(function (c, i) {
+            return paired(c) || (c.i === 10 && node.c[i + 1] && node.c[i + 1].i === 11);
+          });
+        }
+
         /* How well a tree fills the window: all of it, with Erden near its normal width,
            little letter-spacing, no word thinner than a twentieth of the window's short
            side */
@@ -705,7 +712,13 @@
           score -= 2 * Math.max(0, 0.45 - Math.min(ink[0], ink[1]) / loudest);
           score -= 2 * Math.max(0, 0.4 - Math.min(ink[6], ink[8]) / loudest);
           score -= 2 * Math.max(0, 0.25 - ink[11] / loudest);
-          score -= 2 * Math.max(0, 0.22 - ink[10] / loudest);
+          /* Philips is half of her employer's name: at least half as tall as Avent,
+             no smaller than the littlest words, and best set beside Avent as a pair */
+          score -= 4 * Math.max(0, 0.55 - ink[10] / ink[11]);
+          [2, 4, 9].forEach(function (i) {
+            score -= 2 * Math.max(0, 1 - ink[10] / ink[i]);
+          });
+          if (paired(tree)) score += 0.15;
           score -= 2 * Math.max(0, ink[10] / name - 0.8);
           score -= 2 * Math.max(0, ink[11] / name - 0.7);
           /* Her two names are of a size */
