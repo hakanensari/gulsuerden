@@ -272,6 +272,9 @@
         /* The same for the small words: hue offset and contrast, at a sliver of the chroma */
         var QUIET = [[-70, 0], [-70, 1], [-45, 0], [-45, 1], [-20, 0], [-20, 1]];
         var HUSH = { dark: [5.2, 4.2], light: [4.5, 3.5], chroma: 0.035 };
+        /* Hairlines read fainter than their contrast says, so the small words in thin
+           faces take the same quiet hues at a stronger contrast */
+        var THIN = { dark: [10, 8.5], light: [8, 6.5] };
 
         function lab(c) {
           var h = c[2] * Math.PI / 180;
@@ -366,6 +369,9 @@
             }),
             quiet: QUIET.map(function (w) {
               return tone(g, hue + w[0], HUSH.chroma, (dark ? HUSH.dark : HUSH.light)[w[1]]);
+            }),
+            thin: QUIET.map(function (w) {
+              return tone(g, hue + w[0], HUSH.chroma, (dark ? THIN.dark : THIN.light)[w[1]]);
             }),
             philips: tone(g, 258, 0.1, k[1]),
             avent: tone(g, 268, 0.09, k[0])
@@ -756,7 +762,7 @@
         function colours(set) {
           var day = window.daylight;
           return set.map(function (k, i) {
-            return (KEY.indexOf(i) < 0 ? day.quiet : day.words)[k];
+            return (KEY.indexOf(i) >= 0 ? day.words : i === 2 || i === 4 ? day.thin : day.quiet)[k];
           }).concat(day.philips, day.avent);
         }
 
@@ -1324,17 +1330,24 @@
         }
 
         /* Build once the faces are in. On a slow line, give up waiting after three
-           seconds and set the wall again when they arrive. */
-        Promise.all(words.map(function (el) {
-          return document.fonts.load(font(el, "normal", "16px"), el.textContent);
-        })).then(function () {
-          return document.fonts.ready;
-        }).then(function () {
+           seconds. Whenever a face arrives after that, measure and set the wall
+           again, unless it has been dragged loose. A face that fails to load must not
+           hurry the rest, or the wall would be measured in stand-in faces and stay so. */
+        function settle() {
           if (!started) return start();
+          if (aim < 1) return;
           measure();
           layout();
-        }, start);
+        }
+        Promise.all(words.map(function (el) {
+          return document.fonts.load(font(el, "normal", "16px"), el.textContent).catch(function () {});
+        })).then(function () {
+          return document.fonts.ready;
+        }).then(settle, settle);
         setTimeout(start, 3000);
+        document.fonts.addEventListener("loadingdone", function () {
+          if (started) settle();
+        });
       })();
     </script>
   </body>
