@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gülsu Erden</title>
-    <meta name="description" content="Gülsu Erden. Distinctive asset. Reasons to believe on LinkedIn.">
+    <meta name="description" content="Gülsu Erden is currently the global brand building leader at Philips Avent.">
     <link rel="canonical" href="https://gulsuerden.com/">
     <meta name="theme-color" content="#1d111c">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -12,13 +12,24 @@
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://gulsuerden.com/">
     <meta property="og:title" content="Gülsu Erden">
-    <meta property="og:description" content="Distinctive asset. Reasons to believe on LinkedIn.">
+    <meta property="og:description" content="Gülsu Erden is currently the global brand building leader at Philips Avent.">
     <meta property="og:image" content="https://gulsuerden.com/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Gülsu Erden, set large under a band of tiny glowing hexagons">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preload" href="fonts/bodoni-moda-italic-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/anybody-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/pinyon-script-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/space-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/bodoni-moda-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/unbounded-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/alfa-slab-one-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/big-shoulders-display-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/fraunces-900-italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/hanken-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/six-caps-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/instrument-serif-400-italic.woff2" as="font" type="font/woff2" crossorigin>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -49,112 +60,144 @@
       }
     </script>
     <style>
-      @font-face {
-        font-family: "Bodoni Moda";
-        src: url("fonts/bodoni-moda-italic-800.woff2") format("woff2");
-        font-style: italic;
-        font-weight: 800;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "Bodoni Moda";
-        src: url("fonts/bodoni-moda-400.woff2") format("woff2");
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "Hanken Grotesk";
-        src: url("fonts/hanken-grotesk-400.woff2") format("woff2");
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-      }
+      @font-face { font-family: "Bodoni Moda"; src: url("fonts/bodoni-moda-italic-800.woff2") format("woff2"); font-style: italic; font-weight: 800; font-display: swap; }
+      @font-face { font-family: "Bodoni Moda"; src: url("fonts/bodoni-moda-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+      @font-face { font-family: "Anybody"; src: url("fonts/anybody-800.woff2") format("woff2"); font-weight: 800; font-stretch: 50% 150%; font-display: swap; }
+      @font-face { font-family: "Pinyon Script"; src: url("fonts/pinyon-script-400.woff2") format("woff2"); font-display: swap; }
+      @font-face { font-family: "Space Mono"; src: url("fonts/space-mono-400.woff2") format("woff2"); font-display: swap; }
+      @font-face { font-family: "Unbounded"; src: url("fonts/unbounded-900.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+      @font-face { font-family: "Alfa Slab One"; src: url("fonts/alfa-slab-one-400.woff2") format("woff2"); font-display: swap; }
+      @font-face { font-family: "Big Shoulders Display"; src: url("fonts/big-shoulders-display-900.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+      @font-face { font-family: "Fraunces"; src: url("fonts/fraunces-900-italic.woff2") format("woff2"); font-style: italic; font-weight: 900; font-display: swap; }
+      @font-face { font-family: "Hanken Grotesk"; src: url("fonts/hanken-grotesk-400.woff2") format("woff2"); font-display: swap; }
+      @font-face { font-family: "Six Caps"; src: url("fonts/six-caps-400.woff2") format("woff2"); font-display: swap; }
+      @font-face { font-family: "Instrument Serif"; src: url("fonts/instrument-serif-400-italic.woff2") format("woff2"); font-style: italic; font-display: swap; }
       /* Night colours by default; the script below moves them with the time of day */
       :root {
         --ground: #1d111c;
         --ink: #f3e7df;
         --accent: #ff6b7f;
         --muted: rgba(243, 231, 223, 0.78);
-        --underline: #c9a45c;
         color-scheme: dark;
         background: var(--ground);
         color: var(--ink);
       }
       body {
         margin: 0;
-        min-height: 100svh;
-        display: flex;
-        flex-direction: column;
         font-family: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
       }
-      #strip {
-        display: block;
-        flex: none;
-        width: 100%;
-        height: 24px;
-      }
       main {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        padding: 40px clamp(20px, 5vw, 64px) clamp(28px, 4.5vw, 52px);
+        position: relative;
+        padding: 24px;
       }
       h1 {
-        margin: auto 0 0;
-        font-family: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif;
-        font-weight: 400;
-        /* Fits short, wide windows as well as narrow ones */
-        font-size: clamp(80px, min(23vw, 36svh), 300px);
-        line-height: 0.82;
-        letter-spacing: -0.025em;
-      }
-      h1 span {
-        display: block;
-      }
-      .first {
-        font-style: italic;
-        font-weight: 800;
-        color: var(--accent);
-      }
-      .last {
-        padding-left: 0.9em;
-      }
-      sup {
-        position: relative;
-        top: 1.25em;
-        margin-left: 0.3em;
-        vertical-align: top;
-        font: 400 0.107em "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
-        letter-spacing: 0;
-        color: var(--ink);
-      }
-      .note {
         margin: 0;
-        font-size: 16px;
-        letter-spacing: 0.01em;
-        color: var(--muted);
+        font-size: clamp(40px, 11vw, 120px);
+        font-weight: 400;
+        line-height: 1;
       }
-      a {
-        /* Inline so it can wrap on a phone; the padding still widens the tap target */
+      .w {
+        font-kerning: normal;
+        font-synthesis: none;
+        white-space: nowrap;
+      }
+      .gulsu { font: italic 800 1em "Bodoni Moda", Didot, serif; color: var(--accent); }
+      .erden { font-family: "Anybody", Impact, sans-serif; font-weight: 800; }
+      .is { font-family: "Pinyon Script", cursive; }
+      .currently { font-family: "Space Mono", monospace; }
+      .the { font-family: "Bodoni Moda", Didot, serif; }
+      .global { font-family: "Unbounded", sans-serif; font-weight: 900; }
+      .brand { font-family: "Alfa Slab One", Rockwell, serif; }
+      .building { font-family: "Big Shoulders Display", sans-serif; font-weight: 900; }
+      .leader { font: italic 900 1em "Fraunces", Georgia, serif; }
+      .at { font-family: "Hanken Grotesk", sans-serif; }
+      .philips { font-family: "Six Caps", sans-serif; text-transform: uppercase; }
+      .avent { font: italic 400 1em "Instrument Serif", Georgia, serif; }
+      .dot { color: var(--accent); }
+      .link {
+        display: inline-block;
         padding: 12px 0;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .link span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        white-space: nowrap;
+      }
+      .link svg {
+        width: 0.8em;
+        height: 0.8em;
+        flex: none;
+      }
+      .link:hover {
         color: var(--ink);
-        text-decoration: underline;
-        text-decoration-color: var(--underline);
-        text-decoration-thickness: 1px;
-        text-underline-offset: 5px;
       }
-      a:hover {
-        text-decoration-thickness: 2px;
+      .link:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
       }
-      a:focus-visible {
-        outline: 2px solid currentColor;
-        outline-offset: 4px;
+
+      /* The wall: every word is set absolutely by the script below */
+      .js body {
+        overflow: hidden;
+      }
+      .js main {
+        height: 100svh;
+        padding: 0;
+        overflow: hidden;
+      }
+      .js .w,
+      .js .link {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        scale: 1.14;
+        transition: opacity 0.3s ease-out, scale 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .js .w {
+        line-height: 1;
+      }
+      .js .link {
+        padding: 0;
+      }
+      /* LinkedIn runs up its strip like the spine of a book */
+      .js .link span {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform-origin: 0 50%;
+        translate: 0 50%;
+        rotate: -90deg;
+      }
+      .js .on {
+        opacity: 1;
+        scale: 1;
+      }
+      .measuring .w {
+        scale: none;
+        rotate: none;
+        transition: none;
+      }
+      .mark {
+        display: inline-block;
+        width: 0;
+        height: 0;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .js .w,
+        .js .link {
+          transition: none;
+        }
       }
     </style>
     <script>
+      document.documentElement.className = "js";
       /* The colours follow the light of the visitor's day. Keyframes are OKLCH, blended
          in OKLab. Dark and light swap in one step at 06:00 and 20:15, so no minute shows
          a muddy midtone. Add ?hour=13 to the address to pin an hour. */
@@ -194,44 +237,8 @@
           }).join("");
         }
 
-        function hex2lab(hex) {
-          var n = parseInt(hex.slice(1), 16);
-          var c = [n >> 16, (n >> 8) & 255, n & 255].map(function (v) {
-            v /= 255;
-            return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-          });
-          var l = Math.cbrt(0.4122214708 * c[0] + 0.5363325363 * c[1] + 0.0514459929 * c[2]);
-          var m = Math.cbrt(0.2119034982 * c[0] + 0.6806995451 * c[1] + 0.1073969566 * c[2]);
-          var s = Math.cbrt(0.0883024619 * c[0] + 0.2817188376 * c[1] + 0.6299787005 * c[2]);
-          return [
-            0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s,
-            1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s,
-            0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s
-          ];
-        }
-
         function mix(a, b, t) {
           return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
-        }
-
-        /* Eight colours, evenly spaced along a path through the given stops */
-        function ramp(colors) {
-          var stops = colors.map(hex2lab);
-          var out = [];
-          for (var k = 0; k < 8; k++) {
-            var p = (k + 1) / 8 * (stops.length - 1);
-            var j = Math.min(stops.length - 2, Math.floor(p));
-            out.push(lab2hex(mix(stops[j], stops[j + 1], p - j)));
-          }
-          return out;
-        }
-
-        /* In the small hours the strip smoulders: in from 22:00, full from midnight to 04:30, out by 06:00 */
-        function embers(h) {
-          if (h >= 22) return (h - 22) / 2;
-          if (h < 4.5) return 1;
-          if (h < 5.99) return 1 - (h - 4.5) / 1.49;
-          return 0;
         }
 
         function theme(hour) {
@@ -242,28 +249,14 @@
           var b = SKY[i];
           var g = mix(lch2lab(a[1]), lch2lab(b[1]), (h - a[0]) / (b[0] - a[0]));
           var dark = g[0] < 0.6;
-          var ground = lab2hex(g);
           var ink = dark ? "#f3e7df" : "#2a1730";
-          var accent = dark ? "#ff6b7f" : "#a81f3a";
-          var strip = ramp(dark
-            ? [ground, "#8f2f52", accent, "#f68f5c", "#f4b52e", ink]
-            : [ground, "#f4b52e", "#f68f5c", accent, "#5e2445", ink]);
-          var e = embers(h);
-          if (dark && e > 0) {
-            var low = ramp([ground, "#5e2445", "#8f2f52", accent, "#f68f5c"]);
-            strip = strip.map(function (c, k) {
-              return lab2hex(mix(hex2lab(c), hex2lab(low[k]), e));
-            });
-          }
           var n = parseInt(ink.slice(1), 16);
           return {
             dark: dark,
-            ground: ground,
+            ground: lab2hex(g),
             ink: ink,
-            accent: accent,
-            muted: "rgba(" + (n >> 16) + ", " + ((n >> 8) & 255) + ", " + (n & 255) + ", 0.78)",
-            underline: dark ? "#c9a45c" : "#8a6418",
-            strip: strip
+            accent: dark ? "#ff6b7f" : "#a81f3a",
+            muted: "rgba(" + (n >> 16) + ", " + ((n >> 8) & 255) + ", " + (n & 255) + ", 0.78)"
           };
         }
 
@@ -277,13 +270,11 @@
         function apply() {
           var t = theme(hour());
           var root = document.documentElement;
-          ["ground", "ink", "accent", "muted", "underline"].forEach(function (key) {
+          ["ground", "ink", "accent", "muted"].forEach(function (key) {
             root.style.setProperty("--" + key, t[key]);
           });
           root.style.colorScheme = t.dark ? "dark" : "light";
           document.querySelector('meta[name="theme-color"]').content = t.ground;
-          window.stripColours = t.strip;
-          window.dispatchEvent(new Event("daylight"));
         }
 
         apply();
@@ -292,120 +283,314 @@
     </script>
   </head>
   <body>
-    <canvas id="strip" aria-hidden="true"></canvas>
     <main>
-      <h1>
-        <span class="first">Gülsu<sup aria-hidden="true">1</sup></span>
-        <span class="last">Erden</span>
-      </h1>
-      <p class="note">1. Distinctive asset. <a href="https://www.linkedin.com/in/gulsuerden/">Reasons to believe on LinkedIn</a></p>
+      <h1><span class="w gulsu">Gülsu</span> <span class="w erden" data-flex>Erden</span> <span class="w is">is</span> <span class="w currently" data-track="0.35">currently</span> <span class="w the" data-track="0.12">the</span> <span class="w global" data-track="0.04">global</span> <span class="w brand" data-track="0.06">brand</span> <span class="w building" data-track="0.14">building</span> <span class="w leader" data-track="0.04">leader</span> <span class="w at" data-track="0.2">at</span> <span class="w philips" data-track="0.25">Philips</span> <span class="w avent" data-track="0.06">Avent<span class="dot">.</span></span></h1>
+      <a class="link" href="https://www.linkedin.com/in/gulsuerden/"><span>LinkedIn<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8 8 2M3.5 2H8v4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span></a>
     </main>
     <script>
-      /* A hexbin halftone after d3's "hexbin (area)" example: hexagons 2px across their
-         corners, each sized by a density field of soft blobs drifting along the strip.
-         Colour follows density, from the ground up to the hottest colour of the hour. */
+      /* The wall. Each layout below is a tree of rows ("r") and columns ("c"). A number
+         is a word, set across; "3v" turns word 3 to read downwards; "L" is the LinkedIn
+         strip. Every word is scaled until its ink fills its tile, so a tree has a natural
+         shape. To meet the window, "Erden" runs from condensed to expanded, then words
+         letter-space out; the layout that fits best with legible type wins. */
       (function () {
-        var canvas = document.getElementById("strip");
-        var ctx = canvas.getContext("2d");
+        var TREES = [
+          ["c", ["r", 0, 1], ["r", ["c", 2, "3v", "4v"], 5, 6, "7v"], ["r", 8, 9, 10, 11, "L"]],
+          ["c", ["r", 0, 1], ["r", ["c", 2, "3v", "4v"], ["c", ["r", 5, 6], ["r", 7, 8]]], ["r", 9, 10, 11, "L"]],
+          ["c", ["r", 0, 1], ["r", ["c", 2, "3v"], ["c", ["r", 4, 5], 6]], ["r", ["c", ["r", 7, 8], ["r", 9, 10, 11]], "L"]],
+          ["c", ["r", 0, 1], ["r", ["c", 2, "3v", "4v"], ["c", 5, 6]], ["r", 7, 8], ["r", 9, 10, 11, "L"]],
+          ["c", ["r", 0, 1], ["r", ["c", 2, "3v", "4v"], ["c", 5, 6]], ["r", "7v", ["c", 8, ["r", 9, 10], 11], "L"]],
+          ["c", 0, 1, ["r", 2, 3], ["r", "4v", ["c", 5, 6]], ["r", 7, 8], ["r", ["c", ["r", 9, 10], 11], "L"]],
+          ["c", 0, 1, ["r", 2, 3], ["r", "4v", ["c", 5, 6]], 7, 8, ["r", ["c", ["r", 9, 10], 11], "L"]]
+        ];
+        var main = document.querySelector("main");
+        var words = [].slice.call(document.querySelectorAll(".w"));
+        var link = document.querySelector(".link");
         var still = window.matchMedia("(prefers-reduced-motion: reduce)");
-        var R = 2;
-        var DX = Math.sqrt(3) * R;
-        var DY = 1.5 * R;
-        /* Just under touching, so dense patches stay a halftone instead of filling in */
-        var MAX = R * 0.92;
-        var UX = [];
-        var UY = [];
-        for (var k = 0; k < 6; k++) {
-          UX.push(Math.sin(k * Math.PI / 3));
-          UY.push(-Math.cos(k * Math.PI / 3));
+        var info;
+
+        function font(el, stretch, size) {
+          var cs = getComputedStyle(el);
+          return [cs.fontStyle, cs.fontWeight, stretch, size, cs.fontFamily].join(" ");
         }
 
-        /* Seeded, so the field looks the same on every visit */
-        var seed = 7;
-        function rnd() {
-          seed = (seed * 16807) % 2147483647;
-          return (seed - 1) / 2147483646;
-        }
-        var blobs = [];
-        for (var b = 0; b < 9; b++) {
-          blobs.push({
-            px: rnd() * 6.283, py: rnd() * 6.283,
-            sx: 0.08 + rnd() * 0.22, sy: 0.3 + rnd() * 0.6,
-            rx: 0.04 + rnd() * 0.09, ry: 0.35 + rnd() * 0.5,
-            amp: 0.55 + rnd() * 0.5
-          });
-        }
-
-        function draw(t) {
-          var colours = window.stripColours;
-          var w = canvas.clientWidth;
-          var h = canvas.clientHeight;
-          if (!colours || !w || !h) return;
-          var dpr = Math.min(window.devicePixelRatio || 1, 2);
-          var W = Math.round(w * dpr);
-          var H = Math.round(h * dpr);
-          if (canvas.width !== W || canvas.height !== H) {
-            canvas.width = W;
-            canvas.height = H;
-          }
-          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-          ctx.clearRect(0, 0, w, h);
-          var field = blobs.map(function (o) {
-            return {
-              x: w * (0.5 + 0.62 * Math.sin(o.px + t * o.sx)),
-              y: h * (0.5 + 0.45 * Math.sin(o.py + t * o.sy)),
-              ix: 1 / (2 * Math.pow(o.rx * w, 2)),
-              iy: 1 / (2 * Math.pow(o.ry * h, 2)),
-              amp: o.amp
-            };
-          });
-          var paths = colours.map(function () { return new Path2D(); });
-          for (var j = 0, y = 0; y <= h + R; j++, y += DY) {
-            for (var x = j & 1 ? DX / 2 : 0; x <= w + DX; x += DX) {
-              var total = 0;
-              for (var q = 0; q < field.length; q++) {
-                var f = field[q];
-                var ex = x - f.x;
-                var ey = y - f.y;
-                total += f.amp * Math.exp(-(ex * ex * f.ix + ey * ey * f.iy));
+        /* Ink box and baseline of every word, per pixel of font size. The ink is found by
+           drawing the word and scanning the pixels, since some browsers report only the
+           advance width. A flexible word is drawn at both ends of its width axis; its ink
+           widens in a straight line between them. */
+        function measure() {
+          var S = 100;
+          var canvas = document.createElement("canvas");
+          var ctx = canvas.getContext("2d", { willReadFrequently: true });
+          main.classList.add("measuring");
+          info = words.map(function (el) {
+            var t = el.textContent;
+            if (getComputedStyle(el).textTransform === "uppercase") t = t.toUpperCase();
+            function ink(stretch) {
+              ctx.font = font(el, stretch, S + "px");
+              var W = Math.ceil(ctx.measureText(t).width + 2 * S);
+              var H = 3 * S;
+              canvas.width = W;
+              canvas.height = H;
+              ctx.font = font(el, stretch, S + "px");
+              ctx.fillText(t, S, 2 * S);
+              var d = ctx.getImageData(0, 0, W, H).data;
+              function hit(x, y) {
+                return d[(y * W + x) * 4 + 3] > 0;
               }
-              total += 0.06 * (1 + Math.sin(x * 0.045 + t * 1.7) * Math.sin(y * 0.33 - t * 1.1));
-              /* Soft ceiling: overlapping blobs approach full density without flattening into a block */
-              total = 1 - Math.exp(-1.3 * total);
-              var size = MAX * Math.sqrt(total);
-              if (size < 0.4) continue;
-              var p = paths[Math.min(colours.length - 1, Math.floor(total * colours.length))];
-              p.moveTo(x + UX[0] * size, y + UY[0] * size);
-              for (var c = 1; c < 6; c++) p.lineTo(x + UX[c] * size, y + UY[c] * size);
-              p.closePath();
+              var top = 0;
+              var bottom = H - 1;
+              var left = 0;
+              var right = W - 1;
+              var x;
+              var y;
+              rows: for (; top < H; top++) for (x = 0; x < W; x++) if (hit(x, top)) break rows;
+              rows: for (; bottom > top; bottom--) for (x = 0; x < W; x++) if (hit(x, bottom)) break rows;
+              cols: for (; left < W; left++) for (y = top; y <= bottom; y++) if (hit(left, y)) break cols;
+              cols: for (; right > left; right--) for (y = top; y <= bottom; y++) if (hit(right, y)) break cols;
+              return {
+                l: (S - left) / S,
+                w: (right + 1 - left) / S,
+                a: (2 * S - top) / S,
+                h: (bottom + 1 - top) / S
+              };
+            }
+            var m = ink("normal");
+            m.lo = m.hi = m;
+            if (el.hasAttribute("data-flex")) {
+              var lo = ink("ultra-condensed");
+              var hi = ink("extra-expanded");
+              /* Safari ignores stretch on canvas, so there the word keeps its normal width */
+              if (hi.w - lo.w > 0.1) {
+                m.lo = lo;
+                m.hi = hi;
+                m.flex = true;
+              }
+            }
+            el.style.fontSize = "100px";
+            el.style.letterSpacing = "0";
+            el.style.fontStretch = "";
+            var mark = document.createElement("i");
+            mark.className = "mark";
+            el.appendChild(mark);
+            m.b = (mark.getBoundingClientRect().bottom - el.getBoundingClientRect().top) / 100;
+            el.removeChild(mark);
+            m.n = Array.from(t).length;
+            m.track = parseFloat(el.dataset.track) || 0;
+            return m;
+          });
+          main.classList.remove("measuring");
+        }
+
+        function parse(spec) {
+          if (Array.isArray(spec)) return { k: spec[0], c: spec.slice(1).map(parse) };
+          if (spec === "L") return { k: "L" };
+          var s = String(spec);
+          return { k: "w", i: parseInt(s, 10), rot: /v$/.test(s) ? 90 : 0 };
+        }
+
+        /* Width of a node as a function of its height: width = a * height + b.
+           p widens flexible words (and shortens them when they run down the page);
+           th and tv letter-space words set across and down. */
+        function shape(node, p, th, tv, g, lw) {
+          if (node.k === "w") {
+            var m = info[node.i];
+            var q = node.rot ? 1 - p : p;
+            node.q = q;
+            node.ls = m.track * (node.rot ? tv : th);
+            node.l = m.lo.l + (m.hi.l - m.lo.l) * q;
+            node.iw = m.lo.w + (m.hi.w - m.lo.w) * q + node.ls * (m.n - 1);
+            var r = node.iw / m.h;
+            node.a = node.rot ? 1 / r : r;
+            node.b = 0;
+          } else if (node.k === "L") {
+            node.a = 0;
+            node.b = lw;
+          } else {
+            var sa = 0;
+            var sb = 0;
+            node.c.forEach(function (c) {
+              shape(c, p, th, tv, g, lw);
+              if (node.k === "r") {
+                sa += c.a;
+                sb += c.b;
+              } else {
+                sa += 1 / c.a;
+                sb += c.b / c.a;
+              }
+            });
+            var gaps = (node.c.length - 1) * g;
+            if (node.k === "r") {
+              node.a = sa;
+              node.b = sb + gaps;
+            } else {
+              node.a = 1 / sa;
+              node.b = node.a * (sb - gaps);
             }
           }
-          for (var i = 0; i < colours.length; i++) {
-            ctx.fillStyle = colours[i];
-            ctx.fill(paths[i]);
+        }
+
+        /* Flex first, then letter-spacing, until the tree matches the box */
+        function solve(tree, W, H, g, lw) {
+          function over(p, th, tv) {
+            shape(tree, p, th, tv, g, lw);
+            return tree.a * H + tree.b - W;
+          }
+          function bisect(f) {
+            if (f(1) <= 0) return 1;
+            if (f(0) > 0) return 0;
+            var lo = 0;
+            var hi = 1;
+            for (var k = 0; k < 24; k++) {
+              var mid = (lo + hi) / 2;
+              if (f(mid) <= 0) lo = mid;
+              else hi = mid;
+            }
+            return lo;
+          }
+          var p = bisect(function (x) { return over(x, 0, 0); });
+          var th = 0;
+          var tv = 0;
+          if (p === 1) th = bisect(function (x) { return over(1, x, 0); });
+          else if (p === 0 && over(0, 0, 0) > 0) tv = bisect(function (x) { return -over(0, 0, x); });
+          shape(tree, p, th, tv, g, lw);
+          var w = Math.min(W, tree.a * H + tree.b);
+          var h = Math.min(H, (W - tree.b) / tree.a);
+          return { p: p, stretch: th + tv, fill: (w * h) / (W * H) };
+        }
+
+        function place(node, x, y, w, h, g, out) {
+          if (node.k !== "r" && node.k !== "c") {
+            out.push({ node: node, x: x, y: y, w: w, h: h });
+            return;
+          }
+          var c = node.c;
+          if (c.length === 1) return place(c[0], x, y, w, h, g, out);
+          var gap = g;
+          var i;
+          if (node.k === "r") {
+            var nh = h;
+            var wn = node.a * h + node.b;
+            if (wn <= w) gap += (w - wn) / (c.length - 1);
+            else nh = (w - node.b) / node.a;
+            for (i = 0; i < c.length; i++) {
+              var cw = c[i].a * nh + c[i].b;
+              place(c[i], x, y, cw, h, g, out);
+              x += cw + gap;
+            }
+          } else {
+            var nw = w;
+            var hn = (w - node.b) / node.a;
+            if (hn <= h) gap += (h - hn) / (c.length - 1);
+            else nw = node.a * h + node.b;
+            for (i = 0; i < c.length; i++) {
+              var ch = (nw - c[i].b) / c[i].a;
+              place(c[i], x, y, w, ch, g, out);
+              y += ch + gap;
+            }
           }
         }
 
-        var start = performance.now();
-        var frame = 0;
-        var raf = 0;
-        function loop(now) {
-          /* Every other frame is plenty for a slow drift */
-          if (frame++ % 2 === 0) draw((now - start) / 1000);
-          raf = requestAnimationFrame(loop);
+        /* Font size that fills a tile */
+        function size(tile) {
+          var node = tile.node;
+          var m = info[node.i];
+          return node.rot
+            ? Math.min(tile.h / node.iw, tile.w / m.h)
+            : Math.min(tile.w / node.iw, tile.h / m.h);
         }
-        function run() {
-          cancelAnimationFrame(raf);
-          if (still.matches) draw(12);
-          else raf = requestAnimationFrame(loop);
+
+        function set(tile) {
+          var node = tile.node;
+          if (node.k === "L") {
+            link.style.left = tile.x + "px";
+            link.style.top = tile.y + "px";
+            link.style.width = tile.w + "px";
+            link.style.height = tile.h + "px";
+            return;
+          }
+          var m = info[node.i];
+          var el = words[node.i];
+          var f = size(tile);
+          var cx = tile.x + tile.w / 2;
+          var cy = tile.y + tile.h / 2;
+          var left = cx - f * node.iw / 2 + f * node.l;
+          var top = cy - f * m.h / 2 + f * (m.a - m.b);
+          el.style.fontSize = f + "px";
+          el.style.letterSpacing = node.ls * f + "px";
+          if (m.flex) el.style.fontStretch = 50 + 100 * node.q + "%";
+          el.style.left = left + "px";
+          el.style.top = top + "px";
+          el.style.transformOrigin = (cx - left) + "px " + (cy - top) + "px";
+          el.style.rotate = node.rot + "deg";
         }
-        function redraw() {
-          if (still.matches) draw(12);
+
+        function layout() {
+          var W = main.clientWidth;
+          var H = main.clientHeight;
+          var unit = Math.min(W, H) / 100;
+          var pad = Math.max(12, Math.min(40, 3 * unit));
+          var g = Math.max(5, Math.min(16, 1.4 * unit));
+          var lw = 32;
+          var best = null;
+          TREES.forEach(function (spec) {
+            var tree = parse(spec);
+            var s = solve(tree, W - 2 * pad, H - 2 * pad, g, lw);
+            var tiles = [];
+            place(tree, pad, pad, W - 2 * pad, H - 2 * pad, g, tiles);
+            /* Fill the window, keep Erden near its normal width, keep every word legible
+               and the LinkedIn strip long enough to read */
+            var score = s.fill - 0.08 * Math.abs(s.p - 0.5) - 0.05 * s.stretch;
+            tiles.forEach(function (tile) {
+              if (tile.node.k === "L") score -= Math.max(0, 96 - tile.h) * 0.01;
+              else score -= Math.max(0, 16 - size(tile)) * 0.1;
+            });
+            if (!best || score > best.score) best = { tiles: tiles, score: score };
+          });
+          best.tiles.forEach(set);
         }
-        still.addEventListener("change", run);
-        window.addEventListener("resize", redraw);
-        window.addEventListener("daylight", redraw);
-        run();
+
+        function build() {
+          var items = words.concat(link);
+          if (still.matches) {
+            items.forEach(function (el) { el.classList.add("on"); });
+            return;
+          }
+          var t = 0;
+          items.forEach(function (el, i) {
+            t += i === 0 ? 0 : i === 2 ? 420 : i === items.length - 1 ? 480 : 200;
+            setTimeout(function () { el.classList.add("on"); }, t);
+          });
+        }
+
+        var started = false;
+        function start() {
+          if (started) return;
+          started = true;
+          measure();
+          layout();
+          var queued = 0;
+          window.addEventListener("resize", function () {
+            cancelAnimationFrame(queued);
+            queued = requestAnimationFrame(layout);
+          });
+          requestAnimationFrame(function () {
+            requestAnimationFrame(build);
+          });
+        }
+
+        /* Build once the faces are in. On a slow line, give up waiting after three
+           seconds and set the wall again when they arrive. */
+        Promise.all(words.map(function (el) {
+          return document.fonts.load(font(el, "normal", "16px"), el.textContent);
+        })).then(function () {
+          return document.fonts.ready;
+        }).then(function () {
+          if (!started) return start();
+          measure();
+          layout();
+        }, start);
+        setTimeout(start, 3000);
       })();
     </script>
   </body>
