@@ -162,8 +162,11 @@
         scale: 1.14;
         transition: opacity 0.3s ease-out, scale 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
+      /* Each word moves on its own layer, so a swash that reaches past a word's box
+         leaves no trail when the word is dragged */
       .js .w {
         line-height: 1;
+        will-change: transform;
       }
       .js .w svg {
         display: block;
@@ -776,8 +779,7 @@
           words.forEach(function (el, i) { el.style.color = c[i]; });
         }
 
-        /* Set a word or the link in its tile, and return its block: the box its ink
-           fills, plus a pixel all round */
+        /* Set a word or the link in its tile, and return the box its ink fills */
         function set(tile) {
           var node = tile.node;
           var el;
@@ -824,7 +826,7 @@
           }
           el.style.translate = "";
           el.style.scale = "";
-          return { el: el, x: x - 1, y: y - 1, w: w + 2, h: h + 2, fw: w, fh: h, ox: x + w / 2, oy: y + h / 2, s: 1, m: w * h, vx: 0, vy: 0 };
+          return { el: el, x: x, y: y, w: w, h: h };
         }
 
         /* A fresh wall: the best tree for the window, and a fresh hand of colours */
@@ -839,17 +841,33 @@
           loose = 0;
           give = 1;
           document.documentElement.classList.remove("grabbing");
-          blocks = best.tiles.map(set);
+          /* Each block is its ink box plus half the gap all round, so blocks that
+             touch keep their ink a gap apart. The gap is the narrowest the layout leaves
+             between two words, at most the gutter, and the walls stand a pad in from the
+             window's edges. */
+          var ink = best.tiles.map(set);
+          apart = fr.g;
+          ink.forEach(function (a, i) {
+            ink.slice(i + 1).forEach(function (b) {
+              apart = Math.min(apart, Math.max(a.x - b.x - b.w, b.x - a.x - a.w, a.y - b.y - b.h, b.y - a.y - a.h));
+            });
+          });
+          apart = Math.max(0, apart);
+          edge = fr.pad - apart / 2;
+          blocks = ink.map(function (b) {
+            return { el: b.el, x: b.x - apart / 2, y: b.y - apart / 2, w: b.w + apart, h: b.h + apart, fw: b.w, fh: b.h, ox: b.x + b.w / 2, oy: b.y + b.h / 2, s: 1, m: b.w * b.h, vx: 0, vy: 0 };
+          });
           near = neighbours(best.tiles, fr.g);
           hand = deal(near);
           paint();
         }
 
-        /* Blocks. Every word and the link is a solid box. A dragged box pushes the boxes
-           in its way, they push the ones in theirs, and the window's edges are walls.
-           Moves are swept, one axis at a time, so nothing can pass through anything.
-           When a box is jammed, the boxes it presses on slide aside, so a word can be
-           shoved through a crowd. A box let go glides on a little and stops. */
+        /* Blocks. Every word and the link is a solid box that keeps a gap around its
+           ink. A dragged box pushes the boxes in its way, they push the ones in theirs,
+           and walls a pad in from the window's edges hold them all. Moves are swept, one
+           axis at a time, so nothing can pass through anything or close a gap. When a
+           box is jammed, the boxes it presses on slide aside if they have room; if not,
+           the dragged box stops. A box let go glides on a little and stops. */
         var EPS = 0.01;
         /* How far every word shrinks, around its own centre, when the first drag
            loosens the wall */
@@ -858,9 +876,15 @@
         var give = 1;
         var pushed = 0;
         var budget = 0;
+        /* How far apart blocks keep their ink, and where the walls stand */
+        var apart = 0;
+        var edge = 0;
 
+        /* Names along an axis, and the walls across it */
         function axis(ax) {
-          return ax ? ["y", "h", "x", "w", main.clientHeight] : ["x", "w", "y", "h", main.clientWidth];
+          return ax
+            ? ["y", "h", "x", "w", edge, main.clientHeight - edge]
+            : ["x", "w", "y", "h", edge, main.clientWidth - edge];
         }
 
         function across(a, b, q, t) {
@@ -873,7 +897,7 @@
           var k = axis(ax);
           var p = k[0];
           var s = k[1];
-          var r = Math.min(want, dir > 0 ? k[4] - b[p] - b[s] : b[p]);
+          var r = Math.min(want, dir > 0 ? k[5] - b[p] - b[s] : b[p] - k[4]);
           blocks.forEach(function (c) {
             if (c === b || !across(b, c, k[2], k[3])) return;
             var gap = dir > 0 ? c[p] - b[p] - b[s] : b[p] - c[p] - c[s];
@@ -891,7 +915,7 @@
           var p = k[0];
           var s = k[1];
           var from = b[p];
-          b[p] = Math.min(Math.max(0, b[p] + dir * d), k[4] - b[s]);
+          b[p] = Math.min(Math.max(k[4], b[p] + dir * d), k[5] - b[s]);
           blocks.forEach(function (c) {
             if (c === b || c.held || !across(b, c, k[2], k[3])) return;
             var ahead = dir > 0 ? c[p] >= from + b[s] - EPS : c[p] + c[s] <= from + EPS;
@@ -923,9 +947,10 @@
             /* Step aside the way with more room for what it takes to clear b, never
                towards a wall too close to get clear */
             var need = [c[q] + c[t] - b[q], b[q] + b[t] - c[q]];
+            var walls = axis(1 - ax);
             var free = [
-              c[q] < need[0] ? -1 : room(c, 1 - ax, -1, need[0]) / need[0],
-              axis(1 - ax)[4] - c[q] - c[t] < need[1] ? -1 : room(c, 1 - ax, 1, need[1]) / need[1]
+              c[q] - walls[4] < need[0] ? -1 : room(c, 1 - ax, -1, need[0]) / need[0],
+              walls[5] - c[q] - c[t] < need[1] ? -1 : room(c, 1 - ax, 1, need[1]) / need[1]
             ];
             var first = free[1] > free[0] || (free[1] === free[0] && need[1] < need[0]) ? 1 : 0;
             for (var i = 0; i < 2; i++) {
@@ -960,8 +985,8 @@
             if (b.el === link) return;
             var cx = b.x + b.w / 2;
             var cy = b.y + b.h / 2;
-            b.w = b.fw * s + 2;
-            b.h = b.fh * s + 2;
+            b.w = b.fw * s + apart;
+            b.h = b.fh * s + apart;
             b.x = cx - b.w / 2;
             b.y = cy - b.h / 2;
             b.s = s;
